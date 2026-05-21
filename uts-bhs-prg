@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean & Minimalist Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter & Playfair Display for editorial feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Lucide Icons for clean aesthetic -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        accent: {
+                            light: '#171717',
+                            dark: '#f5f5f5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Custom subtle scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e5e5e5;
+            border-radius: 3px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #262626;
+        }
+    </style>
+</head>
+<body class="bg-neutral-50 text-neutral-800 dark:bg-neutral-950 dark:text-neutral-200 antialiased selection:bg-neutral-200 dark:selection:bg-neutral-800">
+
+    <!-- Minimalist Header -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-neutral-50/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200/30 dark:border-neutral-800/30 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-xl font-semibold tracking-tight hover:opacity-70 transition">
+                n.
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide text-neutral-500 dark:text-neutral-400">
+                <a href="#about" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">Tentang</a>
+                <a href="#works" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">Karya</a>
+                <a href="#services" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">Layanan</a>
+                <a href="#contact" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">Kontak</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <!-- Theme Switcher Button -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 transition-colors" aria-label="Toggle Theme">
+                    <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+                    <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-full hover:bg-neutral-200/50 dark:hover:bg-neutral-800/50 transition-colors">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Panel -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-200/50 dark:border-neutral-800/50 px-6 py-8 space-y-6 flex flex-col font-medium shadow-sm transition-all duration-300">
+            <a href="#about" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Tentang Saya, saya adalah seorang mahasiswa program studi teknologi informasi</a>
+            <a href="#works" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Karya</a>
+            <a href="#services" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Layanan</a>
+            <a href="#contact" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero / Intro Section -->
+    <section class="min-h-screen flex items-center justify-center pt-24 px-6">
+        <div class="max-w-3xl w-full py-20 flex flex-col justify-center">
+            <span class="text-xs uppercase tracking-[0.25em] text-neutral-400 dark:text-neutral-500 font-semibold mb-6 block">Kreator & Pengembang</span>
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal leading-[1.15] text-neutral-900 dark:text-white tracking-tight mb-8">
+                Merancang pengalaman digital lewat <span class="italic font-light">kesederhanaan</span> yang presisi.
+            </h1>
+            <p class="text-neutral-500 dark:text-neutral-400 text-lg md:text-xl font-light leading-relaxed max-w-xl mb-12">
+                Saya membantu jenama global maupun lokal membangun struktur website yang bersih, fungsional, dan memiliki karakter visual kuat.
+            </p>
+            <div class="flex flex-wrap gap-6 items-center">
+                <a href="#works" class="group flex items-center space-x-3 text-sm font-medium tracking-wide hover:opacity-75 transition">
+                    <span>Lihat Portofolio</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover:translate-x-1"></i>
+                </a>
+                <span class="w-1.5 h-1.5 rounded-full bg-neutral-300 dark:bg-neutral-700"></span>
+                <a href="#contact" class="text-sm font-medium text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition">
+                    Mari Berkolaborasi
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-800/30">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                <div class="lg:col-span-5">
+                    <span class="text-xs uppercase tracking-[0.25em] text-neutral-400 dark:text-neutral-500 font-semibold mb-4 block">01 / Profil</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-neutral-900 dark:text-white mb-6">Tentang Filosofi Saya</h2>
+                </div>
+                <div class="lg:col-span-7 space-y-8 text-neutral-500 dark:text-neutral-400 leading-relaxed font-light text-base md:text-lg">
+                    <p>
+                        Saya percaya bahwa desain terbaik adalah desain yang tidak disadari. Menghilangkan elemen-elemen yang tidak diperlukan membantu pengguna fokus pada pesan utama yang ingin disampaikan.
+                    </p>
+                    <p>
+                        Dengan pengalaman lebih dari empat tahun di industri teknologi, saya mengombinasikan kepekaan visual desain minimalis dengan standar pemrograman modern berbasis web agar produk dapat diakses dengan cepat dan nyaman di semua layar.
+                    </p>
+                    
+                    <!-- Skills Grid -->
+                    <div class="pt-8 border-t border-neutral-200/50 dark:border-neutral-800/50">
+                        <h3 class="text-sm font-medium text-neutral-800 dark:text-neutral-200 tracking-wide uppercase mb-6">Spesialisasi Teknis</h3>
+                        <div class="grid grid-cols-2 gap-4 text-sm font-normal text-neutral-600 dark:text-neutral-400">
+                            <div class="flex items-center space-x-3">
+                                <span class="w-1 h-1 rounded-full bg-neutral-400"></span>
+                                <span>UI/UX Design</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="w-1 h-1 rounded-full bg-neutral-400"></span>
+                                <span>Responsive Web Layout</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="w-1 h-1 rounded-full bg-neutral-400"></span>
+                                <span>Tailwind CSS Specialist</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="w-1 h-1 rounded-full bg-neutral-400"></span>
+                                <span>Vanilla Javascript & React</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works Section with Filters -->
+    <section id="works" class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-800/30 bg-neutral-100/50 dark:bg-neutral-900/10">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div>
+                    <span class="text-xs uppercase tracking-[0.25em] text-neutral-400 dark:text-neutral-500 font-semibold mb-4 block">02 / Portofolio</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl text-neutral-900 dark:text-white">Karya Terpilih</h2>
+                </div>
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2 text-xs uppercase tracking-widest font-medium">
+                    <button class="filter-btn active px-4 py-2 rounded-full border border-neutral-950 bg-neutral-950 text-white dark:border-white dark:bg-white dark:text-neutral-950 transition-all duration-300" data-filter="all">Semua</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-neutral-200 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600 transition-all duration-300" data-filter="design">Desain</button>
+                    <button class="filter-btn px-4 py-2 rounded-full border border-neutral-200 hover:border-neutral-400 dark:border-neutral-800 dark:hover:border-neutral-600 transition-all duration-300" data-filter="dev">Development</button>
+                </div>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Card 1 -->
+                <div class="project-card group cursor-pointer" data-category="design">
+                    <div class="aspect-[4/3] bg-neutral-200 dark:bg-neutral-900 rounded-xl overflow-hidden mb-6 relative">
+                        <!-- Fallback clean placeholder visual instead of complex image links -->
+                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-neutral-200 to-neutral-300 dark:from-neutral-900 dark:to-neutral-800 group-hover:scale-105 transition-transform duration-700">
+                            <span class="font-serif italic text-3xl text-neutral-400 dark:text-neutral-600">Aethel</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-neutral-400 mb-1 block">Branding & Desain UI</span>
+                            <h3 class="font-serif text-xl text-neutral-900 dark:text-white font-medium group-hover:opacity-75 transition-opacity">Aethel Studio Platform</h3>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="project-card group cursor-pointer" data-category="dev">
+                    <div class="aspect-[4/3] bg-neutral-200 dark:bg-neutral-900 rounded-xl overflow-hidden mb-6 relative">
+                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-neutral-300 to-neutral-200 dark:from-neutral-800 dark:to-neutral-900 group-hover:scale-105 transition-transform duration-700">
+                            <span class="font-serif italic text-3xl text-neutral-400 dark:text-neutral-600">Minimalis</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-neutral-400 mb-1 block">Frontend Development</span>
+                            <h3 class="font-serif text-xl text-neutral-900 dark:text-white font-medium group-hover:opacity-75 transition-opacity">E-Commerce Minimalis</h3>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="project-card group cursor-pointer" data-category="design">
+                    <div class="aspect-[4/3] bg-neutral-200 dark:bg-neutral-900 rounded-xl overflow-hidden mb-6 relative">
+                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-neutral-200 to-neutral-100 dark:from-neutral-900 dark:to-neutral-950 group-hover:scale-105 transition-transform duration-700">
+                            <span class="font-serif italic text-3xl text-neutral-400 dark:text-neutral-600">Satori</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-neutral-400 mb-1 block">UI/UX Design</span>
+                            <h3 class="font-serif text-xl text-neutral-900 dark:text-white font-medium group-hover:opacity-75 transition-opacity">Aplikasi Meditasi Satori</h3>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="project-card group cursor-pointer" data-category="dev">
+                    <div class="aspect-[4/3] bg-neutral-200 dark:bg-neutral-900 rounded-xl overflow-hidden mb-6 relative">
+                        <div class="w-full h-full flex items-center justify-center bg-gradient-to-tr from-neutral-100 to-neutral-300 dark:from-neutral-950 dark:to-neutral-800 group-hover:scale-105 transition-transform duration-700">
+                            <span class="font-serif italic text-3xl text-neutral-400 dark:text-neutral-600">Arch</span>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="text-xs uppercase tracking-wider text-neutral-400 mb-1 block">Full-Stack Development</span>
+                            <h3 class="font-serif text-xl text-neutral-900 dark:text-white font-medium group-hover:opacity-75 transition-opacity">Situs Portofolio Arsitektur</h3>
+                        </div>
+                        <i data-lucide="arrow-up-right" class="w-5 h-5 text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-800/30">
+        <div class="max-w-5xl mx-auto">
+            <div class="max-w-2xl mb-20">
+                <span class="text-xs uppercase tracking-[0.25em] text-neutral-400 dark:text-neutral-500 font-semibold mb-4 block">03 / Layanan</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-neutral-900 dark:text-white mb-6">Bagaimana Saya Membantu Anda</h2>
+                <p class="text-neutral-500 dark:text-neutral-400 font-light leading-relaxed">
+                    Setiap pengerjaan dimulai dari pemahaman mendalam tentang tujuan bisnis Anda, diterjemahkan ke dalam komponen visual yang tepat sasaran.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Service 1 -->
+                <div class="space-y-4">
+                    <span class="font-serif text-2xl italic text-neutral-300 dark:text-neutral-700">01.</span>
+                    <h3 class="text-lg font-medium text-neutral-900 dark:text-white tracking-wide">Desain Visual</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400 text-sm font-light leading-relaxed">
+                        Membuat prototipe antarmuka (UI) interaktif yang ramah pengguna, berstandar tinggi, dan konsisten secara estetika.
+                    </p>
+                </div>
+                <!-- Service 2 -->
+                <div class="space-y-4">
+                    <span class="font-serif text-2xl italic text-neutral-300 dark:text-neutral-700">02.</span>
+                    <h3 class="text-lg font-medium text-neutral-900 dark:text-white tracking-wide">Pengembangan Web</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400 text-sm font-light leading-relaxed">
+                        Implementasi kode semantik yang bersih, cepat dimuat, aman, serta terstruktur dengan optimal untuk SEO secara natural.
+                    </p>
+                </div>
+                <!-- Service 3 -->
+                <div class="space-y-4">
+                    <span class="font-serif text-2xl italic text-neutral-300 dark:text-neutral-700">03.</span>
+                    <h3 class="text-lg font-medium text-neutral-900 dark:text-white tracking-wide">Konsultasi Kreatif</h3>
+                    <p class="text-neutral-500 dark:text-neutral-400 text-sm font-light leading-relaxed">
+                        Diskusi dan pemetaan strategi digital untuk menyempurnakan struktur navigasi serta pengalaman interaksi produk Anda.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 border-t border-neutral-200/30 dark:border-neutral-800/30 bg-neutral-100/30 dark:bg-neutral-900/5">
+        <div class="max-w-3xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-[0.25em] text-neutral-400 dark:text-neutral-500 font-semibold mb-4 block">04 / Kontak</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-neutral-900 dark:text-white mb-4">Mari Memulai Sesuatu</h2>
+                <p class="text-neutral-500 dark:text-neutral-400 font-light max-w-md mx-auto">
+                    Kirimkan konsep proyek Anda atau sapa saya secara santai melalui formulir di bawah ini.
+                </p>
+            </div>
+
+            <!-- Minimalist Form -->
+            <form id="contact-form" class="space-y-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <div class="relative">
+                        <input type="text" id="name" required class="peer w-full bg-transparent border-b border-neutral-300 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 py-3 outline-none transition duration-300 text-sm" placeholder=" ">
+                        <label for="name" class="absolute left-0 top-3 text-neutral-400 dark:text-neutral-500 text-sm pointer-events-none transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-4 peer-focus:text-xs peer-focus:text-neutral-900 dark:peer-focus:text-white">Nama Anda</label>
+                    </div>
+                    <div class="relative">
+                        <input type="email" id="email" required class="peer w-full bg-transparent border-b border-neutral-300 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 py-3 outline-none transition duration-300 text-sm" placeholder=" ">
+                        <label for="email" class="absolute left-0 top-3 text-neutral-400 dark:text-neutral-500 text-sm pointer-events-none transition-all duration-300 peer-placeholder-shown:top-3 peer-placeholder-shown:text-sm peer-focus:-top-4 peer-focus:text-xs peer-focus:text-neutral-900 dark:peer-focus:text-white">Email Anda</label>
+                    </div>
+                </div>
+                <div class="relative pt-4">
+                    <textarea id="message" rows="4" required class="peer w-full bg-transparent border-b border-neutral-300 dark:border-neutral-800 focus:border-neutral-900 dark:focus:border-neutral-100 py-3 outline-none transition duration-300 text-sm resize-none" placeholder=" "></textarea>
+                    <label for="message" class="absolute left-0 top-7 text-neutral-400 dark:text-neutral-500 text-sm pointer-events-none transition-all duration-300 peer-placeholder-shown:top-7 peer-placeholder-shown:text-sm peer-focus:-top-2 peer-focus:text-xs peer-focus:text-neutral-900 dark:peer-focus:text-white">Tuliskan konsep atau pesan Anda...</label>
+                </div>
+
+                <div class="flex justify-end pt-4">
+                    <button type="submit" class="group flex items-center space-x-3 px-8 py-3.5 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 text-xs font-semibold tracking-widest uppercase rounded-full hover:opacity-90 transition duration-300">
+                        <span>Kirim Pesan</span>
+                        <i data-lucide="send" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-neutral-200/30 dark:border-neutral-800/30 bg-neutral-50 dark:bg-neutral-950 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 text-xs tracking-wider uppercase font-medium text-neutral-400 dark:text-neutral-500">
+            <div>
+                &copy; 2026 n. Seluruh hak cipta dilindungi.
+            </div>
+            <div class="flex items-center space-x-8">
+                <a href="#" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">GitHub</a>
+                <a href="#" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">LinkedIn</a>
+                <a href="#" class="hover:text-neutral-900 dark:hover:text-neutral-100 transition duration-200">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom Toast Message for Form Submission (Anti-Alert Rule) -->
+    <div id="toast" class="fixed bottom-8 right-8 z-50 transform translate-y-12 opacity-0 pointer-events-none transition-all duration-500 bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 px-6 py-4 rounded-xl shadow-lg flex items-center space-x-3 text-sm font-medium">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
+        <span id="toast-message">Pesan Anda berhasil terkirim!</span>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Dark/Light Theme Handler
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        // Check stored theme or system preference
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on clicking any link
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Project Filter Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active styling from all buttons
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-neutral-950', 'text-white', 'dark:bg-white', 'dark:text-neutral-950', 'border-neutral-950', 'dark:border-white');
+                    btn.classList.add('border-neutral-200', 'dark:border-neutral-800');
+                });
+
+                // Add active styling to clicked button
+                button.classList.add('active', 'bg-neutral-950', 'text-white', 'dark:bg-white', 'dark:text-neutral-950', 'border-neutral-950', 'dark:border-white');
+                button.classList.remove('border-neutral-200', 'dark:border-neutral-800');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    const cardCategory = card.getAttribute('data-category');
+                    if (filterValue === 'all' || cardCategory === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission & Toast Alert (No alert())
+        const contactForm = document.getElementById('contact-form');
+        const toast = document.getElementById('toast');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show custom toast notification
+            toast.classList.remove('translate-y-12', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            
+            // Clear Form
+            contactForm.reset();
+
+            // Auto-hide toast after 4 seconds
+            setTimeout(() => {
+                toast.classList.add('translate-y-12', 'opacity-0', 'pointer-events-none');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
