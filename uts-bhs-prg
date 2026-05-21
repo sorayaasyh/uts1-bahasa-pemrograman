@@ -86,7 +86,7 @@
         <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-neutral-50 dark:bg-neutral-950 border-b border-neutral-200/50 dark:border-neutral-800/50 px-6 py-8 space-y-6 flex flex-col font-medium shadow-sm transition-all duration-300">
             <a href="#about" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Tentang Saya, saya adalah seorang mahasiswa program studi teknologi informasi</a>
             <a href="#works" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Karya</a>
-            <a href="#services" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Layanan</a>
+            <a href="#services" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Layanan menambahkan sistem Layanan</a>
             <a href="#contact" class="mobile-link text-lg text-neutral-600 dark:text-neutral-400">Kontak</a>
         </div>
     </header>
